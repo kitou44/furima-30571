@@ -1,0 +1,21 @@
+<mxfile host="65bd71144e" modified="2020-10-23T05:52:51.691Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.46.0 Chrome/78.0.3904.130 Electron/7.3.1 Safari/537.36" version="13.6.5" etag="eznXUlQU0dBFmF0A9r6U" pages="2">
+    <diagram id="CA4-VOCvIWwnDMiRMhc-" name="ページ1">
+        <mxGraphModel dx="444" dy="353" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="3" value="Cloud&#10;External IP&#10;Addresses" style="html=1;fillColor=#5184F3;strokeColor=none;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;align=center;spacingTop=-6;fontSize=11;fontStyle=1;fontColor=#999999;shape=mxgraph.gcp2.hexIcon;prIcon=cloud_external_ip_addresses" vertex="1" parent="1">
+                    <mxGeometry x="260" y="160" width="66" height="58.5" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="kTTXdfXuba9A6VZpL0Od" name="ページ2">
+        <mxGraphModel dx="444" dy="353" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="NngX3FclmNLL98lepxF6-0"/>
+                <mxCell id="NngX3FclmNLL98lepxF6-1" parent="NngX3FclmNLL98lepxF6-0"/>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
