@@ -14,27 +14,21 @@
 | birth_day	       | date	  | null: false |
 
 
-### Association
-
-has_many :products dependent: :destroy
-belongs_to :destination dependent: :destroy
-belongs_to :card dependent: :destroy
-
 ##  destinationテーブル
 
 | Column          | Type      | Options                       |
 | --------------- | --------- | ----------------------------- |
-|user_id	        | integer	  |null: false, foreign_key: true |
-|post_code	      | integer	  |null: false                    |
+|user_id	        | string	  |null: false, foreign_key: true |
+|post_code_id	    | string	  |null: false                    |
 |prefecture	      | integer	  |null: false                    |
-|city	            | integer	  |null: false                    |
-|address	        | integer	  |null: false                    |
+|city	            | string	  |null: false                    |
+|address	        | string	  |null: false                    |
 |building_name	  | integer	  |                               |
-|phone_number	    | integer   |null: false                    |
+|phone_number	    | string    |null: false                    |
 
 ### Association
 
-belongs_to :user
+belongs_to :destination
 
 
 ## category テーブル
@@ -56,28 +50,11 @@ has_many :products
 | description	  | integer	| null: false                    |
 | status	      | integer	| null: false                    |
 | size	        | integer	| null: false                    |
-
+| judgment	    | string	|                                |
+| category_id	  | integer	| null: false, foreign_key: true |
+| user_id	      | integer	| null: false, foreign_key: true |
 
 ## Association
 
 belongs_to_active_hash :prefecture
 
-
-## Use_idテーブル
-
-| Column        |	Type    |	Options                        |
-| user_id       |	string	| null: false                    |
-|product_id	    | integer	| null: false, foreign_key: true |
-
-## Association
-
-belongs_to :product
-
-## Item_idテーブル
-
-| Column  | Type   | Options     |
-| name	  | string | index: true |
-
-## Association
-
-has_many :products
