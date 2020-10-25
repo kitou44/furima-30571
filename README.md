@@ -36,29 +36,34 @@ belongs_to :user_id
 
 ## productテーブル
 
-| Column        |	Type    |	Options                        |
-| ------------- | ------- | -----------------------------  |
-| name          | string  | null: false                    |
-| price	        | integer	| null: false                    |
-| description	  | integer	| null: false                    |
-| status	      | integer	|                                |
-| size	        | integer	|                                |
-| judgment	    | string	|                                |
-| category_id	  | integer	| null: false, foreign_key: true |
-| user_id	      | integer	| null: false, foreign_key: true |
+| Column        |	Type     |	Options                       |
+| ------------- | -------- | -----------------------------  |
+| name          | string   | null: false                    |
+| price	        | integer	 | null: false                    |
+| description	  | integer	 | null: false                    |
+| status	      | integer	 |                                |
+| size	        | integer	 |                                |
+| judgment	    | string	 |                                |
+| category_id	  | integer	 | null: false, foreign_key: true |
+| user_id	      | integer	 | null: false, foreign_key: true |
+| condition	    | integer	 | null: false                    |
+| price	        | integer	 | null: false                    |
+| trading_status|	integer	 | null: false                    |
+| completed_at	| datetime |                                |	
 
 ## Association
 
 belongs_to_active_hash :prefecture
+belongs_to :user dependent: :destroy
 
 ## Order history
 
 | Column        |	Type    |	Options                        |
 | ------------- | ------- | -----------------------------  |
-| sales_id      | integer	| null: false, foreign_key: true |
-| sales_date    | string	| null: false                    |
-| sales_amount  | string	| null: false　　　　　　　　　　　　|
 | user_id       | integer	| null: false, foreign_key: true |
-| user_name     | string	| null: false                    |
-| address       | string	| null: false                    |
-| updated_at    | date    |                                |
+| item_id       | string	| null: false, foreign_key: true |
+
+## Association
+
+belongs_to :user
+belongs_to :item
