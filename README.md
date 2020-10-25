@@ -36,34 +36,32 @@ belongs_to :user_id
 
 ## productテーブル
 
-| Column        |	Type     |	Options                       |
-| ------------- | -------- | -----------------------------  |
-| name          | string   | null: false                    |
-| price	        | integer	 | null: false                    |
-| description	  | integer	 | null: false                    |
-| status	      | integer	 |                                |
-| size	        | integer	 |                                |
-| judgment	    | string	 |                                |
-| category_id	  | integer	 | null: false, foreign_key: true |
-| user_id	      | integer	 | null: false, foreign_key: true |
-| condition	    | integer	 | null: false                    |
-| price	        | integer	 | null: false                    |
-| trading_status|	integer	 | null: false                    |
-| completed_at	| datetime |                                |	
+| Column         |	Type     |	Options                       |
+| -------------- | --------  | -----------------------------  |
+| name           | string    | null: false                    |
+| price	         | integer	 | null: false                    |
+| description	   | integer	 | null: false                    |
+| status	       | integer	 |                                |
+| size	         | integer	 |                                |
+| judgment	     | string	   |                                |
+| category_id	   | integer	 | null: false                    |
+| user_id	       | integer	 | null: false, foreign_key: true |
+| condition	     | integer	 | null: false                    |
+| price	         | integer	 | null: false                    |
+| trading_status | integer	 | null: false                    |
 
 ## Association
 
 belongs_to_active_hash :prefecture
 belongs_to :user dependent: :destroy
 
-## Order history
+## Order_history
 
 | Column        |	Type    |	Options                        |
 | ------------- | ------- | -----------------------------  |
-| user_id       | integer	| null: false, foreign_key: true |
-| item_id       | string	| null: false, foreign_key: true |
+| customer_id   | string	| null: false                    |
+| item_id       | string	| null: false                    |
 
 ## Association
 
-belongs_to :user
-belongs_to :item
+belongs_to :product
