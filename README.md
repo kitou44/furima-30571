@@ -28,7 +28,7 @@
 
 ### Association
 
-belongs_to :destination
+belongs_to :user
 
 
 ## category テーブル
@@ -56,5 +56,6 @@ has_many :products
 
 ## Association
 
+has_many :products dependent :destroy
 belongs_to_active_hash :prefecture
 
