@@ -51,26 +51,14 @@ has_many :products
 
 | Column        |	Type    |	Options                        |
 | ------------- | ------- | -----------------------------  |
-| name          | string  | null: false                    |
-| price	        | string	| null: false                    |
-| description	  | string	| null: false                    |
-| status	      | string	| null: false                    |
-| size	        | string	| null: false                    |
-| shipping_cost	| string	| null: false                    |
-| shipping_days	| string	| null: false                    |
-| prefecture_id	| string	| null: false                    |
-| judgment	    | string	|                                |
-| category_id	  | integer	| null: false, foreign_key: true |
-| brand_id	    | integer	| null: false, foreign_key: true |
-| shipping_id	  | integer	| null: false, foreign_key: true |
-| user_id	      | integer	| null: false, foreign_key: true |
+| name          | integer | null: false                    |
+| price	        | integer	| null: false                    |
+| description	  | integer	| null: false                    |
+| status	      | integer	| null: false                    |
+| size	        | integer	| null: false                    |
+
 
 ## Association
-
-belongs_to :user dependent: :destroy
-belongs_to :category dependent: :destroy
-belongs_to :brand dependent: :destroy
-has_many :images dependent: :destroy
 
 belongs_to_active_hash :prefecture
 

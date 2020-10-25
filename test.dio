@@ -1,4 +1,4 @@
-<mxfile host="65bd71144e" modified="2020-10-24T12:28:40.240Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.48.2 Chrome/78.0.3904.130 Electron/7.3.2 Safari/537.36" etag="e6cVtOYgmLDk6qEFIGV4" version="13.6.5" pages="3">
+<mxfile host="65bd71144e" modified="2020-10-25T00:13:03.627Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.48.2 Chrome/78.0.3904.130 Electron/7.3.2 Safari/537.36" etag="udWpfebOB0THhO12RrrW" version="13.6.5" pages="3">
     <diagram id="CA4-VOCvIWwnDMiRMhc-" name="ページ1">
         <mxGraphModel dx="2379" dy="1615" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
@@ -46,7 +46,7 @@
                 <mxCell id="V8ICg0lq0RAEsGu50y8h-10" value="name" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="V8ICg0lq0RAEsGu50y8h-8" vertex="1">
                     <mxGeometry y="26" width="160" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="V8ICg0lq0RAEsGu50y8h-11" value="price&#10;&#10;description&#10;&#10;status&#10;&#10;judgement&#10;&#10;size&#10;&#10;cost&#10;&#10;days&#10;&#10;pretecture_id&#10;&#10;category_id&#10;&#10;brand_id&#10;&#10;user_id&#10;&#10;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="V8ICg0lq0RAEsGu50y8h-8" vertex="1">
+                <mxCell id="V8ICg0lq0RAEsGu50y8h-11" value="price&#10;&#10;description&#10;&#10;status&#10;&#10;judgement&#10;&#10;size&#10;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="V8ICg0lq0RAEsGu50y8h-8" vertex="1">
                     <mxGeometry y="56" width="160" height="304" as="geometry"/>
                 </mxCell>
                 <mxCell id="V8ICg0lq0RAEsGu50y8h-6" value="email&#10;&#10;user_password&#10;&#10;family_name&#10;&#10;first_name&#10;&#10;family_name_kana&#10;&#10;first_name_kana&#10;&#10;birthday" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontStyle=0" parent="1" vertex="1">
