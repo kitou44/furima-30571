@@ -50,6 +50,7 @@ belongs_to :order_history
 | price   	        | integer	  | null: false                    |
 | trading_status_id | integer	  | null: false                    |
 | prefecture_id     | integer   | null: false                    |
+| shopping_cost     | integer   | null: false                    |
 
 ## Association
 
