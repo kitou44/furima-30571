@@ -22,33 +22,33 @@ has_many :products dependent :destroy
 
 | Column          | Type      | Options                       |
 | --------------- | --------- | ----------------------------- |
-|user_id	        | integer	  |null: false, foreign_key: true |
+|order_history_id	| integer	  |null: false, foreign_key: true |
 |prefecture_id    | integer	  |null: false                    |
 |city	            | string	  |null: false                    |
+|post_code        | string    |null: false                    |
 |address	        | string	  |null: false                    |
 |building_name	  | string	  |                               |
 |phone_number	    | string    |null: false                    |
 
 ### Association
 
-belongs_to :user_id
+belongs_to :order_history_id
 
 
 ## productテーブル
 
-| Column         |	Type     |	Options                       |
-| -------------- | --------  | -----------------------------  |
-| name           | string    | null: false                    |
-| price	         | integer	 | null: false                    |
-| description	   | integer	 | null: false                    |
-| status	       | integer	 |                                |
-| size	         | integer	 |                                |
-| judgment	     | string	   |                                |
-| category_id	   | integer	 | null: false                    |
-| user_id	       | integer	 | null: false, foreign_key: true |
-| condition	     | integer	 | null: false                    |
-| price	         | integer	 | null: false                    |
-| trading_status | integer	 | null: false                    |
+| Column            |	Type      |	Options                        |
+| ----------------- | --------- | ------------------------------ |
+| name              | string    | null: false                    |
+| description	      | text   	  | null: false                    |
+| status	          | integer	  |                                |
+| size	            | integer	  |                                |
+| judgment	        | string	  |                                |
+| category_id	      | integer	  | null: false                    |
+| user_id	          | integer	  | null: false, foreign_key: true |
+| condition_id      | integer	  | null: false                    |
+| price_id	        | integer	  | null: false                    |
+| trading_status_id | integer	  | null: false                    |
 
 ## Association
 
@@ -57,10 +57,10 @@ belongs_to :user dependent: :destroy
 
 ## Order_history
 
-| Column        |	Type    |	Options                        |
-| ------------- | ------- | -----------------------------  |
-| customer_id   | string	| null: false                    |
-| item_id       | string	| null: false                    |
+| Column        |	Type        |	Options                        |
+| ------------- | ----------- | -----------------------------  |
+| user          | references	| null: false                    |
+| products      | references	| null: false                    |
 
 ## Association
 
