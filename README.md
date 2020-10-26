@@ -42,7 +42,6 @@ belongs_to :order_history
 | ----------------- | --------- | ------------------------------ |
 | name              | string    | null: false                    |
 | description       | text   	  | null: false                    |
-| status_id	        | integer	  |                                |
 | size	            | integer	  |                                |
 | judgment	        | string	  |                                |
 | category_id	      | integer	  | null: false                    |
