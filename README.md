@@ -17,12 +17,13 @@
 ### Association
 
 has_many :products dependent :destroy
+has_many :order_history dependent :destroy
 
 ##  destinationテーブル
 
 | Column          | Type      | Options                       |
 | --------------- | --------- | ----------------------------- |
-|order_history_id	| integer	  |null: false, foreign_key: true |
+|order_history  	| references|null: false, foreign_key: true |
 |prefecture_id    | integer	  |null: false                    |
 |city	            | string	  |null: false                    |
 |post_code        | string    |null: false                    |
@@ -32,28 +33,30 @@ has_many :products dependent :destroy
 
 ### Association
 
-belongs_to :order_history_id
+belongs_to :order_history
 
 
 ## productテーブル
 
 | Column            |	Type      |	Options                        |
 | ----------------- | --------- | ------------------------------ |
-| name              | string    | null: false                    |
-| description	      | text   	  | null: false                    |
-| status	          | integer	  |                                |
+| name_id           | string    | null: false                    |
+| description_id    | text   	  | null: false                    |
+| status_id	        | integer	  |                                |
 | size	            | integer	  |                                |
 | judgment	        | string	  |                                |
 | category_id	      | integer	  | null: false                    |
 | user_id	          | integer	  | null: false, foreign_key: true |
 | condition_id      | integer	  | null: false                    |
-| price_id	        | integer	  | null: false                    |
+| price   	        | integer	  | null: false                    |
 | trading_status_id | integer	  | null: false                    |
+| prefecture_id     | integer   | null: false                    |
 
 ## Association
 
 belongs_to_active_hash :prefecture
 belongs_to :user dependent: :destroy
+has_one : order_history
 
 ## Order_history
 
@@ -64,4 +67,6 @@ belongs_to :user dependent: :destroy
 
 ## Association
 
+belongs_to :user
 belongs_to :product
+has_one :destination
