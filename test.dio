@@ -1,6 +1,6 @@
-<mxfile host="65bd71144e" modified="2020-10-26T06:23:38.617Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.50.1 Chrome/83.0.4103.122 Electron/9.2.1 Safari/537.36" etag="cmJ0B9b7dgRR95IyC6V8" version="13.6.5" pages="3">
+<mxfile host="65bd71144e" modified="2020-10-26T06:45:01.931Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.50.1 Chrome/83.0.4103.122 Electron/9.2.1 Safari/537.36" etag="0XatWScZ0i56s5MFuH1n" version="13.6.5" pages="3">
     <diagram id="CA4-VOCvIWwnDMiRMhc-" name="ページ1">
-        <mxGraphModel dx="3011" dy="2061" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1919" dy="1615" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -46,7 +46,7 @@
                 <mxCell id="V8ICg0lq0RAEsGu50y8h-10" value=" name" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="V8ICg0lq0RAEsGu50y8h-8" vertex="1">
                     <mxGeometry y="26" width="160" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="V8ICg0lq0RAEsGu50y8h-11" value="description&#10;&#10;size&#10;&#10;judgment&#10;&#10;category_id&#10;&#10;user_id&#10;&#10;condition_id&#10;&#10;price&#10;&#10;trading_statust_id&#10;&#10;prefecture_id&#10;&#10;shopping_cost" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="V8ICg0lq0RAEsGu50y8h-8" vertex="1">
+                <mxCell id="V8ICg0lq0RAEsGu50y8h-11" value="description&#10;&#10;size&#10;&#10;category_id&#10;&#10;user_id&#10;&#10;condition_id&#10;&#10;price&#10;&#10;trading_statust_id&#10;&#10;prefecture_id&#10;&#10;shopping_cost_id" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="V8ICg0lq0RAEsGu50y8h-8" vertex="1">
                     <mxGeometry y="56" width="160" height="344" as="geometry"/>
                 </mxCell>
                 <mxCell id="V8ICg0lq0RAEsGu50y8h-6" value="email&#10;&#10;user_password&#10;&#10;family_name&#10;&#10;first_name&#10;&#10;family_name_kana&#10;&#10;first_name_kana&#10;&#10;birthday" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontStyle=0" parent="1" vertex="1">

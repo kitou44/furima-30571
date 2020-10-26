@@ -43,14 +43,13 @@ belongs_to :order_history
 | name              | string    | null: false                    |
 | description       | text   	  | null: false                    |
 | size	            | integer	  |                                |
-| judgment	        | string	  |                                |
 | category_id	      | integer	  | null: false                    |
 | user_id	          | integer	  | null: false, foreign_key: true |
 | condition_id      | integer	  | null: false                    |
 | price   	        | integer	  | null: false                    |
 | trading_status_id | integer	  | null: false                    |
 | prefecture_id     | integer   | null: false                    |
-| shopping_cost     | integer   | null: false                    |
+| shopping_cost_id  | integer   | null: false                    |
 
 ## Association
 
@@ -62,8 +61,8 @@ has_one : order_history
 
 | Column        |	Type        |	Options                        |
 | ------------- | ----------- | -----------------------------  |
-| user          | references	| null: false                    |
-| product       | references	| null: false                    |
+| user          | references	| null: false,foreign_key: true  |
+| product       | references	| null: false,foreign_key: true  |
 
 ## Association
 
