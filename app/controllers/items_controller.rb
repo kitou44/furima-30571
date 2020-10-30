@@ -3,35 +3,28 @@ class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
   
   def index
-    @items = Items.includes(:user).order("created_at DESC")
+    @items = Item.all
   end
 
   def new
     @items = Items.new
   end
 
-  def destroy
-    items = Items.find(params[:id])
-    items.destroy
-  end
-  
   def edit
   end
-  
+
   def show
-    @comment = Comment.new
-    @comments = @tweet.comments.includes(:user)
   end
-  
-  private 
+
+  private
   def items_params
-    params.require(:tweet).permit(:image, :text).merge(user_id: current_user.id)
+    params.require(:items).permit(:name, :image, :text)
   end
 
   def set_items
     @items = Items.find(params[:id])
   end
-  
+
   def move_to_index
     unless user_signed_in?
       redirect_to action: :index
