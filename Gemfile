@@ -71,3 +71,7 @@ group :production do
 end
 gem 'active_hash'
 gem 'devise'
+
+group :development do
+  gem 'rubocop', require: false
+end

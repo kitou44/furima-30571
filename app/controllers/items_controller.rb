@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_items, only: [:edit, :show]
   before_action :move_to_index, except: [:index, :show]
-  
+
   def index
   end
 
@@ -16,6 +16,7 @@ class ItemsController < ApplicationController
   end
 
   private
+
   def items_params
     params.require(:items).permit(:name, :image, :text)
   end
@@ -25,8 +26,6 @@ class ItemsController < ApplicationController
   end
 
   def move_to_index
-    unless user_signed_in?
-      redirect_to action: :index
-    end
+    redirect_to action: :index unless user_signed_in?
   end
 end
