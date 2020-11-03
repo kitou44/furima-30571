@@ -5,25 +5,25 @@ class ItemsController < ApplicationController
   def index
   end
 
-  def new
-    @items = Items.new
-  end
+  #def new
+   # @items = Items.new
+  #end
 
-  def edit
-  end
+  #def edit
+  #end
 
-  def show
-  end
+  #def show
+  #end
 
-  private
+  #private
 
-  def items_params
-    params.require(:items).permit(:name, :image, :text)
-  end
+  #def items_params
+   # params.require(:items).permit(:name, :image, :text)
+  #end
 
-  def set_items
-    @items = Items.find(params[:id])
-  end
+  #def set_items
+   # @items = Items.find(params[:id])
+  #end
 
   def move_to_index
     redirect_to action: :index unless user_signed_in?

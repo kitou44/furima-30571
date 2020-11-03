@@ -75,3 +75,5 @@ gem 'devise'
 group :development do
   gem 'rubocop', require: false
 end
+
+gem 'pry-rails'
