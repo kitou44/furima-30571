@@ -9,11 +9,12 @@ describe User do
       it 'nicknameとemail、passwordとpassword_confirmationが存在すれば登録できる' do
         expect(@user).to be_valid
       end
-      it 'nicknameが6文字以下で登録できる' do
-        @user.nickname = 'aaaaaa'
+      it "emailに@があれば登録できる" do
+        @user.email = "@"
+        @user.email_confirmation = "@"
         expect(@user).to be_valid
       end
-      it 'passwordが6文字以上であれば登録できる' do
+      it 'passwordが半角英数字混合で入力ができる' do
         @user.password = '000000'
         @user.password_confirmation = '000000'
         expect(@user).to be_valid
@@ -30,6 +31,13 @@ describe User do
         @user.email = ''
         @user.valid?
         expect(@user.errors.full_messages).to include("Email can't be blank")
+      end
+      it "重複したemailが存在する場合登録できない" do
+        @user.save
+        another_user = FactoryBot.build(:user)
+        another_user.email = @user.email
+        another_user.valid?
+        expect(another_user.errors.full_messages).to include("Email has already been taken")
       end
       it 'passwordが空では登録できない' do
         @user.password = ''
@@ -75,6 +83,16 @@ describe User do
           @user.first_name_kana = ''
           @user.valid?
         expect(@user.errors.full_messages).to include("First name kana can't be blank")
+        end
+        it "family_nameは、全角（漢字・ひらがな・カタカナ）での入力でないと登録できないこと" do
+          @user.family_name = nil
+          @user.valid?
+          expect(@user.errors.full_messages).to include("Family name can't be blank")
+        end 
+        it "family_nameのフリガナは、全角（カタカナ）での入力でないと登録できないこと" do
+          @user.family_name = nil
+          @user.valid?
+          expect(@user.errors.full_messages).to include("Family name can't be blank")
         end
         it "passwordが5文字以下であれば登録できないこと" do
           @user.password = "12345"
