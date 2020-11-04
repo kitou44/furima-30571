@@ -9,10 +9,6 @@ describe User do
       it 'nicknameとemail、passwordとpassword_confirmationが存在すれば登録できる' do
         expect(@user).to be_valid
       end
-      it "emailに@があれば登録できる" do
-        @user.email = "kitou@lilc.ocn.ne.jp"
-        expect(@user).to be_valid
-      end
       it 'passwordが半角英数字混合で入力ができる' do
         @user.password = '000000'
         @user.password_confirmation = '000000'
