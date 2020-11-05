@@ -87,7 +87,9 @@ describe User do
       
       it 'nicknameが空だと登録できない' do
         @user.nickname = ''
+        binding.pry
         @user.valid?
+        # binding.pry
         expect(@user.errors.full_messages).to include("Nickname can't be blank")
       end
 
@@ -100,7 +102,7 @@ describe User do
       it "重複したemailが存在する場合登録できない" do
         @user.save
         another_user = FactoryBot.build(:user)
-        binding.pry
+        # binding.pry
         another_user.email = @user.email
         another_user.valid?
         expect(another_user.errors.full_messages).to include("Email has already been taken")
@@ -109,6 +111,7 @@ describe User do
       it "emailは、＠がなければ登録できない" do
         @user.email = "kitoulilc.ocn.ne.jp"
         @user.valid?
+        # binding.pry
         expect(@user.errors.full_messages).to include("Email is invalid", "Email is invalid")
       end
       
@@ -116,7 +119,7 @@ describe User do
         @user.password = "88c3988"
         @user.password_confirmation = "88c3988"
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password can't be blank")
+        expect(@user.errors.full_messages).to include("Password is invalid")
       end
       
       it 'passwordが確認用を含めて2回入力し、半角英数字混合でなければ登録できない' do
@@ -157,7 +160,7 @@ describe User do
       end
       
       it "生年月日が必須であること" do
-        @user.birthday = '1956-08-08'
+        @user.birthday = ''
         @user.valid?
         expect(@user.errors.full_messages).to include("Birthday can't be blank")
       end
