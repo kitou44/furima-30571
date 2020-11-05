@@ -18,7 +18,9 @@ class User < ApplicationRecord
     validates :family_name_kana
     validates :family_name
     validates :first_name
+
  end
+ 
 
   validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
   validates :email, uniqueness: true
