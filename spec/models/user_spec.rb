@@ -17,7 +17,6 @@ describe User do
       
       it 'nicknameが空だと登録できない' do
         @user.nickname = ''
-        binding.pry
         @user.valid?
         expect(@user.errors.full_messages).to include("Nickname can't be blank")
       end
@@ -56,41 +55,30 @@ describe User do
         expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
       end
 
-      it "パスワードとパスワード（確認用）、値の一致でなければ登録できない" do
-        @user .password_confirmation = "88c39"
+      it "passwordが英語のみでは登録できない" do
+        @user .password = "AaBbCc"
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
+        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password", "Password is invalid")
       end
 
-      it "パスワードとパスワード（確認用）は、英数字混合でなければ登録できない" do
-        @user .password_confirmation = "88398839"
-        @user .password_confirmation = "abcdef"
+      it "passwordが数字のみでは登録できない" do
+        @user .password = "88398839"
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
+        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password", "Password is invalid")
       end
       
-      it "family_nameがで全角（漢字・ひらがな・カタカナ）での入力がなければ登録できない" do
+      it "family_nameとfirst_nameがで全角（漢字・ひらがな・カタカナ）での入力がなければ登録できない" do
         @user.family_name = 'ｷﾄｳ'
-        @user.valid?
-        expect(@user.errors.full_messages).to include("Family name is invalid")
-      end
-      
-      it "first_nameが全角（漢字・ひらがな・カタカナ）での入力がなければ登録できない" do
         @user.first_name = 'ｶｽﾞｵ'
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name is invalid")
+        expect(@user.errors.full_messages).to include("Family name is invalid", "First name is invalid")
       end
-
-      it "family_nameは、全角（漢字・ひらがな・カタカナ）での入力がなければ登録できない" do
-        @user.family_name = "ｷﾄｳ"
-        @user.valid?
-        expect(@user.errors.full_messages).to include("Family name is invalid")
-      end 
       
-      it "family_nameのフリガナは、全角（カタカナ）での入力が必須でなければ登録できない" do
+      it "family_nameとfirst_nameのフリガナは、全角（カタカナ）での入力が必須でなければ登録できない" do
         @user.family_name = "ｷﾄｳ"
+        @user.first_name = 'ｶｽﾞｵ'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Family name is invalid")
+        expect(@user.errors.full_messages).to include("Family name is invalid", "First name is invalid")
       end
       
       it "生年月日が必須であること" do
