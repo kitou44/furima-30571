@@ -67,18 +67,28 @@ describe User do
         expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password", "Password is invalid")
       end
 
-      it 'ユーザー本名は、名字と名前が空だと登録できない' do
+      it 'ユーザー本名は、名字が空だと登録できない' do
         @user.family_name = ''
-        @user.first_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Family name can't be blank", "Family name is invalid", "First name can't be blank")
+        expect(@user.errors.full_messages).to include("Family name can't be blank", "Family name is invalid")
       end
 
-      it 'ユーザー本名のフリガナは、名字と名前が空だと登録できない' do
+      it 'ユーザー本名は、名前が空だと登録できない' do
+        @user.first_name = ''
+        @user.valid?
+        expect(@user.errors.full_messages).to include("First name can't be blank", "First name is invalid")
+      end
+
+      it 'ユーザー本名のフリガナは、名字が空だと登録できない' do
         @user.family_name_kana = ''
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Family name kana can't be blank", "Family name kana is invalid")
+      end
+
+      it 'ユーザー本名のフリガナは、名前が空だと登録できない' do
         @user.first_name_kana = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Family name kana can't be blank", "Family name kana is invalid", "First name kana can't be blank", "First name kana is invalid")
+        expect(@user.errors.full_messages).to include("First name kana can't be blank", "First name kana is invalid")
       end
       
       it "family_nameがで全角（漢字・ひらがな・カタカナ）での入力がなければ登録できない" do
