@@ -66,19 +66,43 @@ describe User do
         @user.valid?
         expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password", "Password is invalid")
       end
-      
-      it "family_nameとfirst_nameがで全角（漢字・ひらがな・カタカナ）での入力がなければ登録できない" do
-        @user.family_name = 'ｷﾄｳ'
-        @user.first_name = 'ｶｽﾞｵ'
+
+      it 'ユーザー本名は、名字と名前が空だと登録できない' do
+        @user.family_name = ''
+        @user.first_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Family name is invalid", "First name is invalid")
+        expect(@user.errors.full_messages).to include("Family name can't be blank", "Family name is invalid", "First name can't be blank")
+      end
+
+      it 'ユーザー本名のフリガナは、名字と名前が空だと登録できない' do
+        @user.family_name_kana = ''
+        @user.first_name_kana = ''
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Family name kana can't be blank", "Family name kana is invalid", "First name kana can't be blank", "First name kana is invalid")
       end
       
-      it "family_nameとfirst_nameのフリガナは、全角（カタカナ）での入力が必須でなければ登録できない" do
-        @user.family_name = "ｷﾄｳ"
+      it "family_nameがで全角（漢字・ひらがな・カタカナ）での入力がなければ登録できない" do
+        @user.family_name = 'ｷﾄｳ'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Family name is invalid")
+      end
+
+      it "first_nameがで全角（漢字・ひらがな・カタカナ）での入力がなければ登録できない" do
         @user.first_name = 'ｶｽﾞｵ'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Family name is invalid", "First name is invalid")
+        expect(@user.errors.full_messages).to include("First name is invalid")
+      end
+      
+      it "family_nameのフリガナは、全角（カタカナ）での入力が必須でなければ登録できない" do
+        @user.family_name = "ｷﾄｳ"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Family name is invalid")
+      end
+
+      it "first_nameのフリガナは、全角（カタカナ）での入力が必須でなければ登録できない" do
+        @user.first_name = 'ｶｽﾞｵ'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("First name is invalid")
       end
       
       it "生年月日が必須であること" do
