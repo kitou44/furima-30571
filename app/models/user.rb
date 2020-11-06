@@ -29,4 +29,6 @@ class User < ApplicationRecord
   VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])[a-z\d]{8,32}+\z/
   validates :password, presence: true, length: { minimum: 6}, format: { with: VALID_PASSWORD_REGEX}
 
+  validates :items, presence: true
+
 end
