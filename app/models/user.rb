@@ -32,6 +32,7 @@ class User < ApplicationRecord
   validates :items, presence: true
   validates :text, presence: true
 
-  has_many :messages
+  has_many :items_users
+  has_many :items, through: :room_users
 
 end
