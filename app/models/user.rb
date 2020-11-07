@@ -30,5 +30,8 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6}, format: { with: VALID_PASSWORD_REGEX}
 
   validates :items, presence: true
+  validates :text, presence: true
+
+  has_many :messages
 
 end
