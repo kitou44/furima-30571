@@ -6,12 +6,12 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @items = Items.new
+    @items = Item.new
   end
 
   def create
-    @items = Items.new(items_params)
-    if @items.save
+    @items = Item.new(room_params)
+    if @room.save
       redirect_to root_path
     else
       render :new
@@ -27,7 +27,7 @@ class ItemsController < ApplicationController
   private
 
   def items_params
-   params.require(:items).permit(:name, :image, :text)
+   params.require(:item).permit(:name, :description, :size, :category_id, :user_id, :condition_id, :price, :trading_status_id, :prefecture_id, :shopping_cost_id )
   end
 
   def set_items

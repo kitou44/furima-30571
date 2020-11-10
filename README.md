@@ -36,7 +36,7 @@ has_many :order_histories dependent :destroy
 belongs_to :order_history
 
 
-## productテーブル
+## Itemテーブル
 
 | Column            |	Type      |	Options                        |
 | ----------------- | --------- | ------------------------------ |
