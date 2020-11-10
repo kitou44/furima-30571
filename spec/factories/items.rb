@@ -1,14 +1,15 @@
 FactoryBot.define do
   factory :item do
    name {"photo"}
-   description{"Valuable products"}
+   description{1}
    size{"mediuam"}
-   category_id{"hobby"}
-   user_id{"nil"}
-   condition_id{"Brand new"}
+   category_id{1}
+  #  user_id{"nil"}
+   condition_id{1}
    price{300}
-   trading_status_id{"Buyer burden"}
-   prefecture_id{"hiroshima"}
-   shopping_cost_id{"Shipping fee included"}
+   trading_status_id{1}
+   prefecture_id{34}
+   shopping_cost_id{1}
+   association :user
   end
 end
