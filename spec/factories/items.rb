@@ -1,10 +1,9 @@
 FactoryBot.define do
   factory :item do
-   name {"photo"}
+   name {1}
    description{1}
    size{"mediuam"}
    category_id{1}
-  #  user_id{"nil"}
    condition_id{1}
    price{300}
    trading_status_id{1}

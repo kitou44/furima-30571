@@ -52,8 +52,8 @@ it "価格についての情報が必須であること" do
  expect(@items.errors.full_messages).to include("Shopping cost is invalid")
 end
 
-it "価格の範囲が、¥100~¥1,000,000の間であること" do
-  @items.shopping_cost_id  = '¥100~¥1,000,000'
+it "価格の範囲が、¥300~¥9,999,999の間であること" do
+  @items.shopping_cost_id  = '¥300~¥9,999,999'
   @items.valid?
  expect(@items.errors.full_messages).to include("Price must be greater than 300")
 end
