@@ -11,7 +11,7 @@ context '商品出品ができる時' do
   
   it "販売価格は半角数字のみ保存可能であること" do
     @items.price  = 300
-    @items.be_valid
+    @items.valid?
    expect(@items.errors.full_messages).to include("Size can't be blank", "User can't be blank", "Description is not a number", "Shopping cost must be other than 1", "Price must be greater than 300")
     end
 
