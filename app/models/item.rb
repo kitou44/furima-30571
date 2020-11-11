@@ -7,6 +7,8 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :prefecture
   belongs_to :shopping_cost
+
+  has_one_attached :image
   
 
   validates :name, :description ,:category_id, :size, :user_id, :condition_id, :price, :trading_status_id, :prefecture_id, :shopping_cost_id,   presence: true
