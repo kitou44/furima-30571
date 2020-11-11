@@ -2,7 +2,11 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   
   # validates :items, presence: true
-  belongs_to :user,:description ,:category_id, :size, :user_id, :condition_id, :price, :trading_status_id, :prefecture_id, :shopping_cost_id
+  belongs_to :user
+  belongs_to :condition 
+  belongs_to :category
+  belongs_to :prefecture
+  belongs_to :shopping_cost
   
 
   validates :name, :description ,:category_id, :size, :user_id, :condition_id, :price, :trading_status_id, :prefecture_id, :shopping_cost_id,   presence: true
