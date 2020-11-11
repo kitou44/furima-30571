@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   validates :name, :description ,:category_id, :size, :user_id, :condition_id, :price, :trading_status_id, :prefecture_id, :shopping_cost_id,   presence: true
    
 
-  
+  validates :description ,:category_id, :user_id, :condition_id, :trading_status_id, :prefecture_id, :shopping_cost_id, numericality: { other_than: 1 } 
 
   validates :price,
 
