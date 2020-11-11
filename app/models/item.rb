@@ -18,5 +18,5 @@ greater_than: 300, less_than: 9999999
 
 }
 
-  validates :shopping_cost_id,format: { with: /\A[A-Za-z]\w*\z/ }
+  validates :shopping_cost_id,format: { with: /\A[0-9]+\z/ }
 end

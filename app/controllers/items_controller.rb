@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @items = Item.new
+    @item = Item.new
   end
 
   def create
@@ -31,7 +31,7 @@ class ItemsController < ApplicationController
   end
 
   def set_items
-    @items = Items.find(params[:id])
+    @item = Items.find(params[:id])
   end
 
   def move_to_index
