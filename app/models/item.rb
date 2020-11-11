@@ -1,6 +1,5 @@
 class Item < ApplicationRecord
-  
-
+  extend ActiveHash::Associations::ActiveRecordExtensions
   
   # validates :items, presence: true
   belongs_to :user
