@@ -59,7 +59,7 @@ it "価格の範囲が、¥9,999,999以上の場合、登録できない" do
 end
 
 it "価格の範囲が、¥300以下の場合、登録できない" do
-  @items.shopping_cost_id  = '¥299'
+  @items.price  = '¥299'
   @items.valid?
  expect(@items.errors.full_messages).to include("Price must be greater than 300")
 end
