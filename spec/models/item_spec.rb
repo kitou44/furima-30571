@@ -67,6 +67,6 @@ end
 it "販売価格は半角数字のみ保存可能であること" do
   @items.price  = '¥300~¥9,999,999'
   @items.valid?
- expect(@items.errors.full_messages).to include("Price is invalid")
+ expect(@items.errors.full_messages).to include("Price is not a number")
 end
 end
