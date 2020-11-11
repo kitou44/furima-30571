@@ -1,4 +1,4 @@
-class Description < ApplicationRecord< ActiveHash::Base
+class Description < ActiveHash::Base
   self.data = [
     { id: 1, name: '--' },
     { id: 2, name: '新品、未使用' },

@@ -4,6 +4,16 @@ describe Item do
     @items = FactoryBot.build(:item)
   end
 
+context '商品出品ができる時' do
+    it '' do
+    end
+  end
+  
+context '商品出品ができない時' do
+    it '' do
+    end
+  end
+
 it "商品名が必須であること" do
   @items.name = ''
   @items.valid?
@@ -47,9 +57,9 @@ it "発送までの日数についての情報が必須であること" do
 end
 
 it "価格についての情報が必須であること" do
-  @items.shopping_cost_id  = ''
+  @items.price  = ''
   @items.valid?
- expect(@items.errors.full_messages).to include("Shopping cost is invalid")
+ expect(@items.errors.full_messages).to include("Price can't be blank")
 end
 
 it "価格の範囲が、¥9,999,999以上の場合、登録できない" do
@@ -59,14 +69,14 @@ it "価格の範囲が、¥9,999,999以上の場合、登録できない" do
 end
 
 it "価格の範囲が、¥300以下の場合、登録できない" do
-  @items.price  = '¥299'
+  @items.price  = 299
   @items.valid?
  expect(@items.errors.full_messages).to include("Price must be greater than 300")
 end
 
 it "販売価格は半角数字のみ保存可能であること" do
-  @items.price  = '¥300~¥9,999,999'
+  @items.price  = 300
   @items.valid?
  expect(@items.errors.full_messages).to include("Price is not a number")
-end
+  end
 end
