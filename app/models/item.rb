@@ -14,7 +14,7 @@ class Item < ApplicationRecord
 
 numericality: { only_integer: true,
 
-greater_than: 300, less_than: 999999999
+greater_than: 300, less_than: 9999999
 
 }
 
