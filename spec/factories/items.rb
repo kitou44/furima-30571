@@ -2,7 +2,6 @@ FactoryBot.define do
   factory :item do
    name {1}
    description{1}
-   size{"mediuam"}
    category_id{1}
    condition_id{1}
    price{300}
