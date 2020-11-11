@@ -65,8 +65,8 @@ it "価格の範囲が、¥300以下の場合、登録できない" do
 end
 
 it "販売価格は半角数字のみ保存可能であること" do
-  @items.shopping_cost_id  = '¥300~¥9,999,999'
+  @items.price  = '¥300~¥9,999,999'
   @items.valid?
- expect(@items.errors.full_messages).to include("Shopping cost is invalid")
+ expect(@items.errors.full_messages).to include("Price is invalid")
 end
 end
