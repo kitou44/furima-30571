@@ -58,7 +58,7 @@ RSpec.describe Item, type: :model do
       end
 
       it "発送までの日数についての情報が1以外であること" do
-        @items.trading_status_id  = 1
+        @items.prefecture_id  = 1
         @items.valid?
         expect(@items.errors.full_messages).to include("Trading status must be other than 1")
       end
