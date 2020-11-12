@@ -8,21 +8,25 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :shopping_cost
 
+  with_options presence: true do
+    validates :name
+    validates :description
+    validates :price
+    validates :image
+  end
+
+  with_options numericality: { other_than: 1} do
+    validates :category_id
+    validates :condition_id
+    validates :trading_status_id
+    validates :prefecture_id
+    validates :shopping_cost_id
+  end
+
+  validates_inclusion_of :price, in: 300..9_999_999
+
+  validates :price, numericality: { with: /\A[0-9]+\z/ }
+
   has_one_attached :image
-  
 
-  validates :name, :description ,:category_id, :size, :user_id, :condition_id, :price, :trading_status_id, :prefecture_id, :shopping_cost_id,   presence: true
-   
-
-  validates :description ,:category_id, :condition_id, :trading_status_id, :prefecture_id, :shopping_cost_id, numericality: { other_than: 1 } 
-
-  validates :price,
-
-numericality: { only_integer: true,
-
-greater_than: 300, less_than: 9999999
-
-}
-
-  validates :price,format: { with: /\A[0-9]+\z/ }
 end
