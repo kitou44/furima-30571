@@ -4,7 +4,7 @@ describe User do
     @user = FactoryBot.build(:user)
   end
 
-  describe '新規登録/ユーザー情報' do
+ describe '新規登録/ユーザー情報' do
     context '登録がうまくいくとき' do
       it '' do
         expect(@user).to be_valid 
@@ -13,20 +13,6 @@ describe User do
     end
 
         
-    context '登録がうまくいかないとき' do
-      
-      it 'nicknameが空だと登録できない' do
-        @user.nickname = ''
-        @user.valid?
-        expect(@user.errors.full_messages).to include("Nickname can't be blank")
-      end
-
-      it 'emailが空だと登録できない' do
-        @user.email = ''
-        @user.valid?
-        expect(@user.errors.full_messages).to include("Email can't be blank")
-      end
-      
       it "重複したemailが存在する場合登録できない" do
         @user.save
         another_user = FactoryBot.build(:user)
@@ -77,7 +63,7 @@ describe User do
         @user.first_name = ''
         @user.valid?
         expect(@user.errors.full_messages).to include("First name can't be blank", "First name is invalid")
-      end
+     end
 
       it 'ユーザー本名のフリガナは、名字が空だと登録できない' do
         @user.family_name_kana = ''
@@ -122,4 +108,3 @@ describe User do
       end
     end
   end
-end
