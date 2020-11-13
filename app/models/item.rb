@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :prefecture
   belongs_to :shopping_cost
+  belongs_to :trading_status
 
   with_options presence: true do
     validates :name
