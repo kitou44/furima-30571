@@ -132,12 +132,13 @@
       <li class='list'>
         <%= link_to "#" do %>
         <div class='item-img-content'>
-          <%= image_tag item.image, class: "item-img" %>
+          <%= image_tag item.image, class: "item-img" if item.image.attached? %>
 
           <%# 商品が売れていればsold outを表示しましょう %>
-          <%div class='sold-out'>
           
+          <div class='sold-out'>
             <span>Sold Out!!</span>
+          
           </div><% @items.each do |item|%>
           <%# //商品が売れていればsold outを表示しましょう %>
 
@@ -159,6 +160,9 @@
       <% end %>
       <% end %>
       <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
+      <% else %>
+      </div>
+      <%#@items.each do |item|%>
 
       <%# 商品がない場合のダミー %>
       <%# 商品がある場合は表示されないようにしましょう %>
@@ -179,6 +183,7 @@
         </div>
         <% end %>
       </li>
+      <% end %>
       <%# //商品がある場合は表示されないようにしましょう %>
       <%# /商品がない場合のダミー %>
     </ul>
