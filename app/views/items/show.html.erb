@@ -4,7 +4,7 @@
 <div class="item-show">
   <div class="item-box">
     <h2 class="name">
-      <%= "商品名" %>
+      <%= @item.name %>
     </h2>
     <div class='item-img-content'>
       <%= image_tag "item-sample.png" ,class:"item-box-img" %>
@@ -16,49 +16,21 @@
     </div>
     <div class="item-price-box">
       <span class="item-price">
-        ¥ 999,999,999
+         <%= @item.price %>
       </span>
       <span class="item-postage">
-        (税込) 送料込み
+         <%= @item.shopping_cost %>
       </span>
     </div>
 
     <%# ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
-    <div class="contents row">
-  <% @tweets.each do |tweet| %>
-    <div class="content_post" style="background-image: url(<%= item.image %>);">
-      <div class="more">
-        <span><%= image_tag 'arrow_top.png' %></span>
-        <ul class="more_list">
-          <li>
-            <%= link_to '詳細', item_path(item.id), method: :get %>
-    </li>
-      <% if user_signed_in? && current_user.id == item.user_id %>
-    <li>
-    <%= link_to '商品の編集', "edit_item_path(item.id)", method: :get, class: "item-red-btn" %>
+    <% if user_signed_in? %>
+    <%= link_to '商品の編集', "#", method: :get, class: "item-red-btn" %>
     <p class='or-text'>or</p>
-    <%= link_to '削除', "item_path(item.id)", method: :delete, class:'item-destroy' %>
-    </li>
-      <% end %>
-    </ul>
-     </div>
-      <p><%= item.text %></p>
-      <span class="name">
-        <a href="/users/<%= item.user.id %>">
-          <span>出品者</span><%= item.user.nickname %>
-        </a>
-       </span>
-      </div>
-     <% end %>
-   </div>
-    <%# 商品が売れていない場合はこちらを表示しましょう %>
-    
-    <% if user_signed_in? && current_user.id ==item.user_id %>
-    <div class="more">
-    <span><%= image_tag 'arrow_top.png' %></span>
-    <ul class="more_list">
-    <%= link_to '購入画面に進む', "item_path(item.id)" ,class:"item-red-btn"%>
+    <%= link_to '削除', "#", method: :delete, class:'item-destroy' %>
     <% end %>
+    <%# 商品が売れていない場合はこちらを表示しましょう %>
+    <%= link_to '購入画面に進む', "item_path(item.id)" ,class:"item-red-btn"%>
     <%# //商品が売れていない場合はこちらを表示しましょう %>
 
 
@@ -71,7 +43,7 @@
       <tbody>
         <tr>
           <th class="detail-item">出品者</th>
-          <td class="detail-value"><%= "出品者名" %></td>
+          <td class="detail-value"><%= @item.name %></td>
         </tr>
         <tr>
           <th class="detail-item">カテゴリー</th>
@@ -103,7 +75,6 @@
       <div class="report-btn">
         <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
         <span>不適切な商品の通報</span>
-        
       </div>
     </div>
   </div>
