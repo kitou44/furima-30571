@@ -130,7 +130,7 @@
       <% if @items[0] != nil%>
       <% @items.each do |item|%>
       <li class='list'>
-        <%= link_to "items#show" do %>
+        <%= link_to item_path(item.id) do %>
         <div class='item-img-content'>
           <%= image_tag item.image, class: "item-img" if item.image.attached? %>
 
@@ -158,37 +158,8 @@
         <% end %>
       </li>
     <% end %>
-      
-      <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
-      <div class="contents row">
-  <% @items.each do |item| %>
-    <div class="content_post" style="background-image: url(<%= item.image %>);">
-      <div class="more">
-        
-        <ul class="more_list">
-          <li>
-            <%= link_to '詳細', item_path(item.id), method: :get %>
-          </li>
-          <% if user_signed_in? && current_user.id == item.user_id %>
-            <li>
-              <%= link_to '編集', edit_item_path(item.id), method: :get %>
-            </li>
-            <li>
-              <%= link_to '削除', item_path(item.id), method: :delete %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-      <p><%= item.name %></p>
-      <span class="name">
-        <a href="/users/<%= item.user.id %>">
-          <span>投稿者</span><%= item.user.nickname %>
-        </a>
-      </span>
-    </div>
-  <% end %>
-
-      <%# 商品がない場合のダミー %>
+      <%# 商品がない場合のダミー(itemsテーブルの要素が0だったら) %>
+      <% @items[0] != nil%>
       <%# 商品がある場合は表示されないようにしましょう %>
       <li class='list'>
         <%= link_to '#' do %>
