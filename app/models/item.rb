@@ -35,4 +35,6 @@ class Item < ApplicationRecord
   def was_attached?
     self.image.attached?
   end
+
+  has_many :orders
 end
