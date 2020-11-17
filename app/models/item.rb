@@ -36,5 +36,9 @@ class Item < ApplicationRecord
     self.image.attached?
   end
 
-  has_many :orders
+  has_one :order
+  belongs_to_active_hash :prefecture
+
+
+
 end

@@ -16,8 +16,8 @@
 
 ### Association
 
-has_many :products dependent :destroy
-has_many :order_histories dependent :destroy
+has_many :items dependent :destroy
+has_many :order dependent :destroy
 
 ##  destinationテーブル
 
@@ -33,7 +33,7 @@ has_many :order_histories dependent :destroy
 
 ### Association
 
-belongs_to :order_history
+belongs_to :order
 
 
 ## Itemテーブル
@@ -54,9 +54,9 @@ belongs_to :order_history
 
 belongs_to_active_hash :prefecture
 belongs_to :user
-has_one : order_history
+has_one : order
 
-## Order_history
+## Order
 
 | Column        |	Type        |	Options                        |
 | ------------- | ----------- | -----------------------------  |
@@ -66,5 +66,5 @@ has_one : order_history
 ## Association
 
 belongs_to :user
-belongs_to :product
+belongs_to :item
 has_one :destination
