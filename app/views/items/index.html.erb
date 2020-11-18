@@ -135,10 +135,11 @@
           <%= image_tag item.image, class: "item-img" if item.image.attached? %>
 
           <%# 商品が売れていればsold outを表示しましょう %>
-          
+          <% if item.order != nil %>
           <div class='sold-out'>
             <span>Sold Out!!</span>
           </div>
+          <% end %>
           
           <%# //商品が売れていればsold outを表示しましょう %>
         </div>
@@ -158,8 +159,9 @@
         <% end %>
       </li>
     <% end %>
+    <% end %>
       <%# 商品がない場合のダミー(itemsテーブルの要素が0だったら) %>
-      <% @items[0] != nil%>
+      <% if @items.empty? %>
       <%# 商品がある場合は表示されないようにしましょう %>
       <li class='list'>
         <%= link_to '#' do %>
