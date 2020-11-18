@@ -8,6 +8,7 @@
     </h2>
     <div class='item-img-content'>
       <%= image_tag "item-sample.png" ,class:"item-box-img" %>
+      サンプルではなく、商品のimage
       <%# 商品が売れている場合は、sold outを表示しましょう %>
       
       <% if @item.order %> 
@@ -24,22 +25,23 @@
           <%= @item.price %>
          </span>
          <span class="item-postage">
-         <%= @item.shopping_cost %>
+         <%= @item.shopping_cost.name %>
         </span>
        </div>
       <% end %>
 
     <%# ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
-       <% if user_signed_in? %>
+      <% if user_signed_in? %>
        <% if current_user.id == @item.user_id %>
         <%= link_to '商品の編集', item_path(@item.id), method: :get, class: "item-red-btn" %>
         <p class='or-text'>or</p>
         <%= link_to '削除', item_path(@item.id),method: :delete, class:'item-destroy' %>
-        <% end %>
         
-      <%# 商品が売れていない場合はこちらを表示しましょう %>
-      <% else @item.id.blank? %>
-        <%= link_to '購入画面に進む', order_path(@item.id) ,class:"item-red-btn"%>
+        
+        <%# 商品が売れていない場合はこちらを表示しましょう %>
+        <% else @item.id.blank? %>
+          <%= link_to '購入画面に進む', order_path(@item.id) ,class:"item-red-btn"%>
+        <% end %>
       <% end %>
     
     <%# //商品が売れていない場合はこちらを表示しましょう %>
@@ -59,23 +61,23 @@
         </tr>
         <tr>
           <th class="detail-item">カテゴリー</th>
-          <td class="detail-value"><%= @item.category %></td>
+          <td class="detail-value"><%= @item.category.name %></td>
         </tr>
         <tr>
           <th class="detail-item">商品の状態</th>
-          <td class="detail-value"><%= @item.condition %></td>
+          <td class="detail-value"><%= @item.condition.name %></td>
         </tr>
         <tr>
           <th class="detail-item">配送料の負担</th>
-          <td class="detail-value"><%= @item.shopping_cost %></td>
+          <td class="detail-value"><%= @item.shopping_cost.name %></td>
         </tr>
         <tr>
           <th class="detail-item">発送元の地域</th>
-          <td class="detail-value"><%= @item.prefecture %></td>
+          <td class="detail-value"><%= @item.prefecture.name %></td>
         </tr>
         <tr>
           <th class="detail-item">発送日の目安</th>
-          <td class="detail-value"><%= @item.trading_status %></td>
+          <td class="detail-value"><%= @item.trading_status.name %></td>
         </tr>
       </tbody>
     </table>
