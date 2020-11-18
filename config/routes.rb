@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :new, :create,]
   # # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :users
-  resources :items
-  resources :orders, only: [:index]
-  get '/orders/:id', to: 'orders#index', as: 'order'
+  
+  #resources :orders, only: [:index]
+  #get '/orders/:id', to: 'orders#index', as: 'order'
 end
