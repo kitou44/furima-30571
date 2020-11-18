@@ -35,4 +35,10 @@ class Item < ApplicationRecord
   def was_attached?
     self.image.attached?
   end
+
+  #has_one :order
+  belongs_to_active_hash :prefecture
+
+
+
 end
