@@ -30,10 +30,6 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  def update
-    @item = Item.find(params[:id])
-    @item.update(items_params)
-  end
 
   def edit
     unless current_user == @item.user
@@ -42,11 +38,11 @@ class ItemsController < ApplicationController
   end
  
  def update
-   if @item.update(items_params)
-      redirect_to item_path(@item)
-   else
-      render :edit
-   end
+  if @item.update(items_params)
+     redirect_to item_path(@item)
+  else
+     render :edit
+  end
  end
 
 
