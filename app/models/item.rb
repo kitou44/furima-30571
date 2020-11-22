@@ -39,6 +39,7 @@ class Item < ApplicationRecord
   has_one :order
   belongs_to_active_hash :prefecture
 
+  has_one :item_order
 
 
 end
