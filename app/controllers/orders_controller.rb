@@ -1,10 +1,11 @@
 class OrdersController < ApplicationController
 
   def index
-    @item = Item.all
+    # フォームオブジェクトのインスタンスを生成し、インスタンス変数に代入する
+
   end
 
-  def show
-    @order = Order.find(params[:id])
+  def create
+     # フォームオブジェクトのインスタンスを生成し、インスタンス変数に代入する
   end
 end
