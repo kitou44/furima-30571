@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_22_115545) do
+ActiveRecord::Schema.define(version: 2020_11_23_104403) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -33,18 +33,33 @@ ActiveRecord::Schema.define(version: 2020_11_22_115545) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "card_token", null: false
-    t.string "customer_token", null: false
-    t.bigint "user_id"
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "prefecture_id", null: false
+    t.string "city", null: false
+    t.string "post_code", null: false
+    t.string "address", null: false
+    t.string "building_name"
+    t.string "phone_number", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
   create_table "descriptions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "destinations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.integer "prefecture_id", null: false
+    t.string "city", null: false
+    t.string "post_code", null: false
+    t.string "address", null: false
+    t.string "building_name"
+    t.string "phone_number", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_destinations_on_order_id"
   end
 
   create_table "item_orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -75,6 +90,11 @@ ActiveRecord::Schema.define(version: 2020_11_22_115545) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["items_id"], name: "index_items_users_on_items_id"
     t.index ["user_id"], name: "index_items_users_on_user_id"
+  end
+
+  create_table "order_destinations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -121,7 +141,7 @@ ActiveRecord::Schema.define(version: 2020_11_22_115545) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "cards", "users"
+  add_foreign_key "destinations", "orders"
   add_foreign_key "item_orders", "items"
   add_foreign_key "items_users", "items", column: "items_id"
   add_foreign_key "items_users", "users"
