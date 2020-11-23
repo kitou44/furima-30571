@@ -6,4 +6,9 @@ class Destination < ApplicationRecord
     validates :address, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
     validates :phone_number, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
   end
+  def save
+    user = User.create(name: name, name_reading: name_reading, nickname: nickname)
+    Address.create(order_history: order_history, post_code: post_code, prefecture_id: prefecture_id, city: city, building_name: building_name, user_id: user.id, phone_number :phone_number)
+    Card.create(price: price, user_id: user.id)
+  end
 end
