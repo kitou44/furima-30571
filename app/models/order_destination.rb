@@ -1,6 +1,6 @@
 class OrderDestination 
   include ActiveModel::Model
-  attr_accessor :item_id, :user_id, :order, :postal_code, :prefecture_id, :city, :building, :phone_number
+  attr_accessor :item_id, :user_id, :order, :postal_code, :prefecture_id, :city, :building, :phone_number, :address
 
   with_options presence: true do
     validates :city, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: "is invalid. Input full-width characters."}

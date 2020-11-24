@@ -10,9 +10,8 @@ class OrdersController < ApplicationController
 
   def create
      # フォームオブジェクトのインスタンスを生成し、インスタンス変数に代入する
-    binding.pry
-    @order = OrderDestination.new(order_params)
     
+    @order = OrderDestination.new(order_params)
   end
   
 
