@@ -26,9 +26,9 @@ has_many :order dependent :destroy
 |order          	| references|null: false, foreign_key: true |
 |prefecture_id    | integer	  |null: false                    |
 |city	            | string	  |null: false                    |
-|post_code        | string    |null: false                    |
+|postal_code        | string    |null: false                    |
 |address	        | string	  |null: false                    |
-|building_name	  | string	  |                               |
+|building     	  | string	  |                               |
 |phone_number	    | string    |null: false                    |
 
 ### Association
