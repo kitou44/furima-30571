@@ -97,3 +97,4 @@ group :production do
 end
 
 gem 'payjp'
+gem 'pry-rails'
