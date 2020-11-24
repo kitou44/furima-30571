@@ -9,7 +9,9 @@ class OrderDestination
     validates :building, format: {with: /\A[ぁ-んァ-ン一-龥]/, message: "is invalid. Include hyphen(-)"}
     validates :phone_number, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
   end
-
+  with_options presence: true do
+    validates :postal_code, :city, :address, :phone_number, numericality: { other_than: 0, message: "can't be blank" }
+  end
   def save
     Order.create(item_id: item_id, user_id:user_id)
     Address.create(order_history: order_history, postal_code: postal_code, prefecture_id: prefecture_id, 
