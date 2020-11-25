@@ -19,10 +19,12 @@ class OrdersController < ApplicationController
       render action: :index
     end
   end
-  
-
 private
   def order_params
     params.require(:order_destination).permit(:prefecture_id, :city, :postal_code, :address,:building, :phone_number).merge(item_id: params[:item_id])
+  end
+
+  def address_params
+    params.require(:address).permit(:prefecture_id, :city, :postal_code, :address,:building, :phone_number).merge(item_id: params[:item_id])
   end
 end
