@@ -7,6 +7,6 @@ class Order < ApplicationRecord
 
  with_options presence: true do
   validates :name, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: "is invalid. Input full-width characters."}
-
  end
+ validates :price, presence: true
 end
