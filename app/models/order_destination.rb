@@ -10,8 +10,8 @@ class OrderDestination
   end
   
   def save
-    Order.create(item_id: item_id, user_id:user_id)
-    Destination.create(order_id: order_id, postal_code: postal_code, prefecture_id: prefecture_id, 
+    hennsu = Order.create(item_id: item_id, user_id:user_id)
+    Destination.create(order_id: hennsu.id, postal_code: postal_code, prefecture_id: prefecture_id, 
     city: city,building: building, phone_number: phone_number)
   end
 end

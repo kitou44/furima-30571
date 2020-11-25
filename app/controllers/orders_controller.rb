@@ -11,6 +11,7 @@ class OrdersController < ApplicationController
   def create
      # フォームオブジェクトのインスタンスを生成し、インスタンス変数に代入する
     @order = OrderDestination.new(order_params)
+    # binding.pry
     if @order.valid?
        @order.save
        redirect_to action: :index
@@ -21,10 +22,12 @@ class OrdersController < ApplicationController
   end
 private
   def order_params
-    params.require(:order_destination).permit(:prefecture_id, :city, :postal_code, :address,:building, :phone_number).merge(item_id: params[:item_id])
+    params.require(:order_destination).permit(:prefecture_id, :city, :postal_code, :address,:building, :phone_number)
+    .merge(item_id: params[:item_id],user_id: current_user.id)
   end
 
   def address_params
-    params.require(:address).permit(:prefecture_id, :city, :postal_code, :address,:building, :phone_number).merge(item_id: params[:item_id])
+    params.require(:address).permit(:prefecture_id, :city, :postal_code, :address,:building, :phone_number)
+    .merge(item_id: params[:item_id],user_id:  current_user.id)
   end
 end
