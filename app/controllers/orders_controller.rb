@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
     # binding.pry
     if @order.valid?
        @order.save
-       redirect_to action: :index
+       redirect_to root_path
     else
       @item = Item.find(params[:item_id])
       render action: :index
@@ -22,12 +22,12 @@ class OrdersController < ApplicationController
   end
 private
   def order_params
-    params.require(:order_destination).permit(:prefecture_id, :city, :postal_code, :address,:building, :phone_number)
+    params.require(:order_destination).permit(:prefecture_id, :city, :post_code, :address,:building, :phone_number)
     .merge(item_id: params[:item_id],user_id: current_user.id)
   end
 
   def address_params
-    params.require(:address).permit(:prefecture_id, :city, :postal_code, :address,:building, :phone_number)
+    params.require(:address).permit(:prefecture_id, :city, :post_code, :address,:building, :phone_number)
     .merge(item_id: params[:item_id],user_id:  current_user.id)
   end
 end
