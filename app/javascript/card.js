@@ -1,5 +1,5 @@
 const pay = () => {
-  Payjp.setPublicKey(process.env.PAYJP_PUBLIC_KEY); // 環境変数を読み込む
+  Payjp.setPublicKey("pk_test_1a8be0a8410c37971f681817"); // 環境変数を読み込む
   const form = document.getElementById("charge-form"); 
   form.addEventListener("submit", (e) => { // イベント発火
     e.preventDefault();

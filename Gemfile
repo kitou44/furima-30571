@@ -98,3 +98,4 @@ end
 
 gem 'payjp'
 gem 'pry-rails'
+gem 'payjp'
