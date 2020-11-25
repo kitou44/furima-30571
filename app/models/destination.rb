@@ -1,5 +1,5 @@
 class Destination < ApplicationRecord
-  attr_accessor :order_history, :prefecture_id, :city, :postal_code, :address, :building, :phone_number 
+  attr_accessor :order, :prefecture_id, :city, :postal_code, :address, :building, :phone_number 
   with_options presence: true do
     validates :city, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: "is invalid. Input full-width characters."}
     validates :postal_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}

@@ -11,10 +11,9 @@ class OrdersController < ApplicationController
   def create
      # フォームオブジェクトのインスタンスを生成し、インスタンス変数に代入する
     @order = OrderDestination.new(order_params)
-    binding.pry
     if @order.valid?
-      @order.save
-      redirect_to action: :index
+       @order.save
+       redirect_to action: :index
     else
       @item = Item.find(params[:item_id])
       render action: :index
