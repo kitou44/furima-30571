@@ -5,19 +5,43 @@ RSpec.describe OrderDestination, type: :model do
     @order = FactoryBot.build(:order_destination)
   end
 
-  it "priceとtokenがあれば保存ができること" do
-    expect(@order).to be_valid
+  describe '購入作成' do
+    context '内容に問題がない' do
+  it "addressとtokenがあれば保存ができること" do
+    expect(@order).to eq true
   end
 
-  it "priceが空では登録できないこと" do
-    @order.price = nil
-    @order.valid?
-    expect(@order.errors.full_messages).to include("Price can't be blank")
-  end
 
-  it "tokenが空では登録できないこと" do
+
+  it "配送先の郵便番号が空では登録できないこと" do
     @order.token = nil
     @order.valid?
-    expect(@order.errors.full_messages).to include("Token can't be blank")
+    expect(@order.errors.full_messages).to include(" Post_code can't be blank")
   end
+
+  it "配送先の都道府県が空では登録できないこと" do
+    @order.token = nil
+    @order.valid?
+    expect(@order.errors.full_messages).to include(" prefecture_id can't be blank")
+  end
+
+  it "配送先の市町村が空では登録できないこと" do
+    @order.token = nil
+    @order.valid?
+    expect(@order.errors.full_messages).to include("City can't be blank")
+  end
+
+  it "配送先の番地が空では登録できないこと" do
+    @order.token = nil
+    @order.valid?
+    expect(@order.errors.full_messages).to include("Address can't be blank")
+  end
+
+  it "配送先の電話番号が空では登録できないこと" do
+    @order.token = nil
+    @order.valid?
+    expect(@order.errors.full_messages).to include("Phone_number can't be blank")
+  end
+end
+end
 end
