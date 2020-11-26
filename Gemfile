@@ -99,3 +99,4 @@ end
 gem 'payjp'
 gem 'pry-rails'
 gem 'payjp'
+gem 'factory_bot_rails'
