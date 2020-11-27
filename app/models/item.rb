@@ -1,7 +1,6 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   
-  # validates :items, presence: true
   belongs_to :user
   belongs_to :condition 
   belongs_to :category
@@ -29,8 +28,6 @@ class Item < ApplicationRecord
   validates :price, numericality: { with: /\A[0-9]+\z/ }
 
   has_one_attached :image
-
-  validates :content, presence: true, unless: :was_attached?
 
   def was_attached?
     self.image.attached?

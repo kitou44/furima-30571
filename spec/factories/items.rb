@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :item do
-   name {"あ"}
+   name {Faker::Name.initials(number: 2)}
    description {"a"}
    category_id {2}
    condition_id {2}
@@ -9,5 +9,8 @@ FactoryBot.define do
    prefecture_id {34}
    shopping_cost_id {2}
    association :user
+   after(:build) do |image|
+    image.image.attach(io: File.open('public/apple-touch-icon.png'), filename: 'apple-touch-icon.png')
+  end
   end
 end

@@ -5,7 +5,7 @@ FactoryBot.define do
     prefecture {2}
     city {"横浜市緑区"}
     post_code {"123-4567"}
-    address {"青山1-1-1"}
-    phone_number {"09012345678"}
+    address {Faker::Address}
+    phone_number {Faker::PhoneNumber}
   end
 end
