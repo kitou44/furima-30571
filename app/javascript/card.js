@@ -10,7 +10,7 @@ const pay = () => {
   const formData = new FormData(formResult);
 
   const card = { // カードオブジェクトを生成
-      number: formData.get("number"),              // カード番号
+      number: formData.get("orde_destination[number]"),              // カード番号
       cvc: formData.get("cvc"),                    // カード裏面の3桁の数字
       exp_month: formData.get("exp_month"),        // 有効期限の月
       exp_year: `20${formData.get("exp_year")}`,   // 有効期限の年
