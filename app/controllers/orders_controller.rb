@@ -1,31 +1,27 @@
 class OrdersController < ApplicationController
 
   def index
-    # フォームオブジェクトのインスタンスを生成し、インスタンス変数に代入する
     @order = OrderDestination.new
-    # 購入する商品の情報
-    # findメソッドやパラムスを使用して取得する
     @item = Item.find(params[:item_id])
   end
 
   def create
-     # フォームオブジェクトのインスタンスを生成し、インスタンス変数に代入する
     @order = OrderDestination.new(order_params)
-    # binding.pry
+    @item = Item.find(params[:item_id])
     if @order.valid?
        pay_item
        @order.save
        redirect_to root_path
     else
-      @item = Item.find(params[:item_id])
       render action: :index
     end
+
   end
 private
   def order_params
     params.require(:order_destination).permit(:prefecture_id, :city, :post_code, :address,:building_name, :phone_number)
     .merge(item_id: params[:item_id],user_id: current_user.id)
-    params.require(:order).permit(:price).merge(token: params[:token])
+    params.require(:order_destination).permit(:price).merge(token: params[:token])
   end
 
   def pay_item
