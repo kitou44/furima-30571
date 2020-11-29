@@ -126,7 +126,6 @@
     <%= link_to '新規投稿商品', "new_item_path", class: "subtitle" %>
     <ul class='item-lists'>
 
-      <%# 商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
       <% if @items[0] != nil%>
       <% @items.each do |item|%>
       <li class='list'>
@@ -134,14 +133,12 @@
         <div class='item-img-content'>
           <%= image_tag item.image, class: "item-img" if item.image.attached? %>
           
-          <%# 商品が売れていればsold outを表示しましょう %>
           <% if item.order != nil %>
           <div class='sold-out'>
             <span>Sold Out!!</span>
           </div>
           <% end %>
           
-          <%# //商品が売れていればソールドアウトを表示しましょう %>
         </div>
         
         <div class='item-info'>
@@ -160,9 +157,7 @@
       </li>
     <% end %>
     <% end %>
-      <%# 商品がない場合のダミー(itemsテーブルの要素が0だったら) %>
       <% if @items.empty? %>
-      <%# 商品がある場合は表示されないようにしましょう %>
       <li class='list'>
         <%= link_to '#' do %>
         <%= image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class: "item-img" %>
@@ -181,11 +176,8 @@
         <% end %>
       </li>
       <% end %>
-      <%# //商品がある場合は表示されないようにしましょう %>
-      <%# /商品がない場合のダミー %>
     </ul>
   </div>
-  <%# /商品一覧 %>
 </div>
 <a href="/items/new">
   <div class='purchase-btn'>
