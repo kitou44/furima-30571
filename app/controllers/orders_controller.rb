@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = OrderDestination.new(order_params)
-    # binding.pry
+    binding.pry
     @item = Item.find(params[:item_id])
     if @order.valid?
        pay_item
