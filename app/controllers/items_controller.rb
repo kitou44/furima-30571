@@ -54,7 +54,6 @@ class ItemsController < ApplicationController
  end
 
 
-
   private
 
   def items_params
