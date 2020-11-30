@@ -19,8 +19,8 @@ class OrdersController < ApplicationController
   end
 private
   def order_params
-    params.require(:order_destination).permit(:prefecture_id, :city, :post_code, :address,:building_name, :phone_number)
-    .merge(item_id: params[:item_id],user_id: current_user.id,token: params[:token])
+    params.require(:order_destination).permit(:prefecture_id, :token, :city, :post_code, :address,:building_name, :phone_number)
+    .merge(item_id: params[:item_id],user_id: current_user.id)
     
   end
 
@@ -31,10 +31,5 @@ private
       card: order_params[:token],    # カードトークン
       currency: 'jpy'                 # 通貨の種類（日本円）
     )
-  end
-
-  def address_params
-    params.require(:address).permit(:prefecture_id, :city, :post_code, :address, :building_name, :phone_number)
-    .merge(item_id: params[:item_id],user_id:  current_user.id)
   end
 end
