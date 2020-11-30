@@ -11,7 +11,10 @@ RSpec.describe OrderDestination, type: :model do
   describe '購入作成' do
     context '内容に問題がない' do
       it "addressとtokenがあれば保存ができること" do
-        
+        expect(@order).to be_valid
+      end
+      it "建物名が空でも保存できること" do
+        @order.building_name = nil
         expect(@order).to be_valid
       end
     end
@@ -27,6 +30,12 @@ RSpec.describe OrderDestination, type: :model do
       @order.prefecture_id = 1
       @order.valid?
       expect(@order.errors.full_messages).to include("Prefecture must be other than 1")
+    end
+
+    it "配送先の都道府県が空では登録できないこと" do
+      @order.prefecture_id = nil
+      @order.valid?
+      expect(@order.errors.full_messages).to include("Prefecture can't be blank")
     end
 
     it "配送先の市町村が空では登録できないこと" do
