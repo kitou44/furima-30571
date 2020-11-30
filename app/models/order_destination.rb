@@ -5,9 +5,9 @@ class OrderDestination
   with_options presence: true do
     validates :token
     validates :city
-    validates :post_code
+    validates :post_code, '{/\A\d{3}[-]\d{4}\z/}'
     validates :address
-    validates :phone_number
+    validates :phone_number, '{^0\d{9,10}$}'
     validates :prefecture_id, numericality: { other_than: 1, message: 'must be other than 1' }
   end
   
