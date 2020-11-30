@@ -9,12 +9,10 @@ class OrdersController < ApplicationController
     @order = OrderDestination.new(order_params)
     @item = Item.find(params[:item_id])
     if @order.valid?
-      #binding.pry
        pay_item
        @order.save
        redirect_to root_path
     else
-      #binding.pry
       render action: :index
     end
 
