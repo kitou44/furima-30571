@@ -9,6 +9,7 @@ class OrdersController < ApplicationController
     @order = OrderDestination.new(order_params)
     @item = Item.find(params[:item_id])
     if @order.valid?
+      #binding.pry
        pay_item
        @order.save
        redirect_to root_path
@@ -19,9 +20,8 @@ class OrdersController < ApplicationController
   end
 private
   def order_params
-    params.require(:order_destination).permit(:prefecture_id, :token, :city, :post_code, :address,:building_name, :phone_number, item_id: params[:item_id])
-    .merge(user_id: current_user.id)#,#token: params[:token])
-    
+    params.require(:order_destination).permit(:prefecture_id, :city, :post_code, :address,:building_name, :phone_number)
+    .merge(user_id: current_user.id, token: params[:token], item_id: params[:item_id])
   end
 
   def pay_item
