@@ -13,11 +13,9 @@ const pay = () => {
       exp_month: formData.get("order_destination[month]"),        // 有効期限の月
       exp_year: `20${formData.get("order_destination[year]")}`,   // 有効期限の年
     };
-    // console.log(card)
     
     
     Payjp.createToken(card, (status, response) => {
-      console.log(response)
       if (status === 200) {
         const token = response.id;
         console.log(token)
