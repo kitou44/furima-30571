@@ -24,7 +24,7 @@ private
   end
 
   def pay_item
-    Payjp.api_key = "sk_test_01427de299d21ad8ca9c4594"  # 自身のPAY.JPテスト秘密鍵を記述しましょう
+    Payjp.api_key = ENV["PAYJP_PUBLIC_KEY"]  # 自身のPAY.JPテスト秘密鍵を記述しましょう
     Payjp::Charge.create(
       amount: @item.price, # 商品の値段
       card: order_params[:token],    # カードトークン
