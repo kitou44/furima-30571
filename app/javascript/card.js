@@ -24,7 +24,8 @@ const pay = () => {
         const renderDom = document.getElementById("charge-form");   //idを元に要素を取得
         const tokenObj = `<input value=${token} type="hidden" name='token'>`;   //paramsの中にトークンを含める
         renderDom.insertAdjacentHTML("beforeend", tokenObj);  //フォームの一番最後に要素を追加
-        
+      }
+      
         document.getElementById("card-number").removeAttribute("name");
         document.getElementById("card-cvc").removeAttribute("name");
         document.getElementById("card-exp-month").removeAttribute("name");
@@ -32,7 +33,7 @@ const pay = () => {
         
         document.getElementById("charge-form").submit();
         document.getElementById("charge-form").reset();
-      }
+      
     });
   });
 };

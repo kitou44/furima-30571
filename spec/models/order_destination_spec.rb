@@ -24,7 +24,7 @@ RSpec.describe OrderDestination, type: :model do
     end
 
     it "配送先の都道府県が1以外であること" do
-      @order.prefecture = 1
+      @order.prefecture_id = 1
       @order.valid?
       expect(@order.errors.full_messages).to include("Prefecture must be other than 1")
     end
