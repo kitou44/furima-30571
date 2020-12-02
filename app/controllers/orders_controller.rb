@@ -1,8 +1,9 @@
 class OrdersController < ApplicationController
 
   def index
-    @order = OrderDestination.new
     @item = Item.find(params[:item_id])
+    @order = OrderDestination.new
+    return redirect_to root_path if @item.user_id == current_user.id || @item.order!= nil
   end
 
   def create
@@ -15,7 +16,6 @@ class OrdersController < ApplicationController
     else
       render action: :index
     end
-
   end
 private
   def order_params
