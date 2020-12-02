@@ -7,5 +7,6 @@ FactoryBot.define do
     post_code {"123-4567"}
     address {Faker::Address}
     phone_number {"09012345678"}
+    building_name{"建物ビル"}
   end
 end
