@@ -5,14 +5,13 @@ class OrderDestination
   with_options presence: true do
     validates :token
     validates :city
-    validates :post_code, '{/\A\d{3}[-]\d{4}\z/}'
+    validates :post_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/}
     validates :address
-    validates :phone_number, '{^0\d{9,10}$}'
+    validates :phone_number, format: {with: /\A\d{11}\z/}
     validates :prefecture_id, numericality: { other_than: 1, message: 'must be other than 1' }
   end
   
   def save
-    
     order = Order.create(item_id: item_id, user_id:user_id)
     Destination.create(order_id: order.id, address: address, post_code: post_code, prefecture_id: prefecture_id, city: city,building_name: building_name, phone_number: phone_number)
   end
