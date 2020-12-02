@@ -14,7 +14,7 @@ RSpec.describe OrderDestination, type: :model do
         expect(@order).to be_valid
       end
       it "建物名が空でも保存できること" do
-        @order.building_name = nil
+        @order.building_name = ""
         expect(@order).to be_valid
       end
     end
@@ -24,6 +24,12 @@ RSpec.describe OrderDestination, type: :model do
       @order.post_code = nil
       @order.valid?
       expect(@order.errors.full_messages).to include("Post code can't be blank")
+    end
+
+    it "郵便番号はハイフン無しでは登録できないこと" do
+      @order.post_code = "1234567"
+      @order.valid?
+      expect(@order.errors.full_messages).to include("Post code is invalid", "Post code is invalid")
     end
 
     it "配送先の都道府県が1以外であること" do
@@ -54,6 +60,18 @@ RSpec.describe OrderDestination, type: :model do
       @order.phone_number = nil
       @order.valid?
       expect(@order.errors.full_messages).to include("Phone number can't be blank")
+    end
+
+    it "電話番号は12桁以上では登録できないこと" do
+      @order.phone_number = "0909009900009"
+      @order.valid?
+      expect(@order.errors.full_messages).to include("Phone number is invalid")
+    end
+
+    it "電話番号はハイフンがあると登録できないこと" do
+      @order.phone_number = "090-9009-9009"
+      @order.valid?
+      expect(@order.errors.full_messages).to include("Phone number is invalid")
     end
   end
   end
