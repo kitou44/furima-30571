@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :find_item, only: [:creat, :index]
+  before_action :find_item, only: [:create, :index]
 
   def index
     @order = OrderDestination.new
@@ -31,6 +31,6 @@ private
     )
   end
   def find_item
-    @item = Item.find(params[:id])
+    @item = Item.find(params[:item_id])
   end
 end
