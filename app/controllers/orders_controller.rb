@@ -1,4 +1,4 @@
-class OrdersController < ApplicationControlle
+class OrdersController < ApplicationController
   before_action :find_item, only: [:creat, :index]
 
   def index

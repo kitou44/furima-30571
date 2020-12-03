@@ -1,5 +1,4 @@
 class ItemsController < ApplicationController
-  #before_action :set_items, only: [:edit, :show]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   before_action :set_items, only: [:edit, :show,:update, :destroy]
   before_action :find_item, only: :order
