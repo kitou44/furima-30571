@@ -10,6 +10,8 @@ class OrderDestination
     validates :phone_number, format: {with: /\A\d{11}\z/}
     validates :prefecture_id, numericality: { other_than: 1, message: 'must be other than 1' }
     validates :building_name, format: {with: /\A[ぁ-んァ-ン一-龥]/}
+    validates :user_id
+    validates :item_id
   end
   
   def save
