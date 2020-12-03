@@ -2,7 +2,6 @@ class OrdersController < ApplicationControlle
   before_action :find_item, only: [:creat, :index]
 
   def index
-    @item = Item.find(params[:item_id])
     @order = OrderDestination.new
     return redirect_to root_path if @item.user_id == current_user.id || @item.order!= nil
   end
