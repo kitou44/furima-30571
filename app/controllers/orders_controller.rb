@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :find_item, only: :creat
 
   def index
     @item = Item.find(params[:item_id])
@@ -30,5 +31,8 @@ private
       card: order_params[:token],
       currency: 'jpy'             
     )
+  end
+  def find_item
+    @item = Item.find(params[:id])
   end
 end
