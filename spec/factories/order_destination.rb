@@ -1,7 +1,6 @@
 FactoryBot.define do
   factory :order_destination do
     token {"tok_abcdefghijk00000000000000000"}
-    order {"写真"}
     prefecture_id {2}
     city {"横浜市緑区"}
     post_code {"123-4567"}
