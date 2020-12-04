@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   #before_action :set_items, only: [:edit, :show]
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_items, only: [:edit, :show,:update, :destroy]
 
   def index
@@ -39,7 +39,13 @@ class ItemsController < ApplicationController
   end
  end
 
-
+ 
+ def destroy
+  if current_user == @item.user
+     @item.destroy
+  end
+    redirect_to root_path
+ end
 
   private
 
