@@ -1,12 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "items#index"
-  resources :items, only: [:index, :new, :create, :destroy, :edit, :update, :show]
-  # # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
+  resources :items do
+    resources :orders, only: [:index, :create]
+  end
   resources :users, only: [:edit, :update]
-  
-  
-  resources :orders, only: [:index, :create]
-  get '/orders/:id', to: 'orders#index', as: 'order'
 end
