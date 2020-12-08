@@ -20,7 +20,7 @@ class User < ApplicationRecord
  end
 
   VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
-  validates :password, presence: true, format: { with: VALID_PASSWORD_REGEX} ,length: { minimum: 8}
+  validates :password, :password_confirmation, presence: true, format: { with: VALID_PASSWORD_REGEX} ,length: { minimum: 8}
 
   has_many :items_users
   has_many :items
