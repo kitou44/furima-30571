@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
     @order = OrderDestination.new
     return redirect_to root_path if @item.user_id == current_user.id || @item.order!= nil
   end
-
+  
   def create
     @order = OrderDestination.new(order_params)
     if @order.valid?
@@ -17,6 +17,7 @@ class OrdersController < ApplicationController
       render action: :index
     end
   end
+
 private
   def order_params
     params.require(:order_destination).permit(:prefecture_id, :city, :post_code, :address,:building_name, :phone_number)
