@@ -39,11 +39,10 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    if @item.order != nil
-      redirect_to root_path
+    if @item.order != nil 
     end
-    unless current_user == @item.user
       redirect_to root_path
+    unless current_user == @item.user
     end
   end
  
